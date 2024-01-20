@@ -93,7 +93,6 @@ public class DrawTiling {
 		scanner.nextLine();
 		while(tilingString.length() < targetLength) {
 			String s = scanner.nextLine();
-			//System.out.println(">>>" + s);
 			s = s.replaceAll("[. ]", "");
 			tilingString = tilingString + s;
 		}
@@ -102,7 +101,7 @@ public class DrawTiling {
 
 
     
-    // 
+    // Call the solver. Note that the solver uses the tiling string deterministically.
 	public static void findSolution() {
 		solve(1);
 	}
@@ -196,13 +195,13 @@ public class DrawTiling {
 		p.println(chainColor + " setrgbcolor\n");
 		p.println("1 setlinecap [.1 .2] 0 setdash");
 		if (drawChains) {
+			// Arrowhead code from https://staff.science.uva.nl/a.j.p.heck/Courses/Mastercourse2005/tutorial.pdf
 			p.print("/arrowhead {\n" + "gsave\n" + "currentpoint   % s x1 y1 x0 y0\n"
 					+ "4 2 roll exch  % s x0 y0 y1 x1\n" + "4 -1 roll exch % s y0 y1 x0 x1\n"
 					+ "sub 3 1 roll   % s x1-x2 y0 y1\n" + "sub exch       % s y0-y1 x1-x2\n"
 					+ "atan rotate    % rotate over arctan((y0-y1)/(x1-x2))\n" + "dup scale      % scale by factor s\n"
 					+ "-7 2 rlineto 1 -2 rlineto -1 -2 rlineto\n" + "closepath fill  % fill arrowhead\n" + "grestore\n"
 					+ "newpath\n" + "} def\n");
-			// p.println("[0.1] 0 setdash\n");
 			for (int i = 1; i < HEIGHT; i += 2) {
 				for (int j = 1; j <= WIDTH; j += 2) {
 					// Overkill hashmap to count # of squares around a point
