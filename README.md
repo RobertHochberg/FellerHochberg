@@ -1,10 +1,6 @@
 # FellerHochberg
 Files associated with "T-Tetrominos in Arithmetic Progression" in Discrete Mathematics
 
-Left aligned Header | Right aligned Header | Center aligned Header
-| :--- | ---: | :---:
-Content Cell  | Content | Content Cell
-Content Cell  | Content Cell | Content Cell
 # The SAT Generators Directory
 Contains various python and Java files for creating CNF formulas in DIMACS format. These correspond to questions of the form "_Can a 20x20 rectangle be tiled with Ts, without an AP of length greater than 2?_" and are satisfiable if and only if the answer is "yes." 
 
