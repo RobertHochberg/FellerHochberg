@@ -14,6 +14,6 @@ Program | Details
 
 
 # The Graphics Directory
-Contains encapsulated PostScript and PDF pictures of tilings of rectangles. These tilings are extreme in the sense that they achieve the shortest length longest-AP among all tilings of the given rectangle. The EPS files were drawn by DrawTiling.java in SATgenerators Directory. PDF file were created from the EPS files using the eps2pdf utility.
+Contains encapsulated PostScript and PDF pictures of tilings of rectangles. These tilings are extreme in the sense that they achieve the shortest length longest-AP among all tilings of the given rectangle. The EPS files were drawn by DrawTiling.java in the SATgenerators Directory. PDF file were created from the EPS files using the popular eps2pdf utility.
 
 File names are of the form `HxW-L.eps` or `HxW-L.pdf`. H and W represent the height and width of the rectangle. L is the length of the longest AP in the given tiling.
