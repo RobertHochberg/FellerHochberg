@@ -17,3 +17,14 @@ Program | Details
 Contains encapsulated PostScript and PDF pictures of tilings of rectangles. These tilings are extreme in the sense that they achieve the shortest length longest-AP among all tilings of the given rectangle. The EPS files were drawn by DrawTiling.java in the SATgenerators Directory. PDF file were created from the EPS files using the popular eps2pdf utility.
 
 File names are of the form `HxW-L.eps` or `HxW-L.pdf`. H and W represent the height and width of the rectangle. L is the length of the longest AP in the given tiling.
+
+# The 2DvdW Directory
+Contains Python code for generating and solving CNFs that ask for a 2-coloring of an HxW rectangle with no monochromatic AP of length greater than L.
+
+Usage:<br>
+`python3 2dvdW.py 5 65 3` to search for a 2-coloring of a 5x62 rectangle with no monochromatic AP of length greater than 3.<br>
+`python3 2dvdW.py 5 65 0` to find the smallest L such that a 5x62 rectangle has a 2-coloring with no monochromatic AP of length greater than L. It also produces that coloring.<br>
+Whenever a coloring is found, it is saved in a file with name of the form 2D-5x65-4.txt<br>
+
+Colorings of large rectangles that we have found are also present in this directory, of the form `2D-HxW-L.txt`, where `L` is the length of the longest monochromatic AP found in the coloring.
+
