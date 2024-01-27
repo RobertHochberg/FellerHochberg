@@ -33,6 +33,8 @@ for fname in files:
     if not m: continue
 
     print("File:", fname, end=": ")
+    file_is_good = True
+
     # Parameters according to the file name
     fH, fW, fL = int(m.group(1)), int(m.group(2)), int(m.group(3))
 
@@ -45,7 +47,9 @@ for fname in files:
     # Check that the file has the right name
     if (H, W, L) != (fH, fW, fL):
         print(f'Error: File name does not match internal contents.')
-        exit(1)
+        file_is_good = False
+        continue
+        #exit(1)
 
     # Read the board from the file
     board = []
@@ -53,11 +57,17 @@ for fname in files:
         row = line.strip().split(" ")
         if len(row) != W:
             print("Error: Row has the wrong length.")
-            exit(1)
+            file_is_good = False
+            break
+            #exit(2)
         board.append(row)
+    if not file_is_good: continue
+
     if len(board) != H:
             print("Error: Coloring has too few rows.")
-            exit(1)
+            file_is_good = False
+            #exit(3)
+    if not file_is_good: continue
 
     # Make sure the board has no monochromatic AP of length greater than L
     # We make this painfully brute-force, to be different from the way the 
@@ -70,9 +80,12 @@ for fname in files:
               for i2 in range(H):
                    for j2 in range(j1, W):
                         if j1 == j2 and i1 <= i2: continue
+                        if not file_is_good: break
                         #print("isjs", i1, j1, i2, j2)
                         if makes_mono_AP(board, i1, j1, i2, j2, L+1):
-                             print(f'Error: Monochromatic AP found starting at ({i1}, {j1})-({i2}, {j2})')
-                             exit(1)
-    print("Good")
+                             print(f'Error: Long monochromatic AP found starting at ({i1}, {j1})-({i2}, {j2})')
+                             file_is_good = False
+                             #exit(4)
+    if file_is_good:
+        print("Good")
               
