@@ -21,10 +21,11 @@ File names are of the form `HxW-L.eps` or `HxW-L.pdf`. H and W represent the hei
 # The 2DvdW Directory
 Contains Python code for generating and solving CNFs that ask for a 2-coloring of an HxW rectangle with no monochromatic AP of length greater than L.
 
-Usage:<br>
-`python3 2dvdW.py 5 65 3` to search for a 2-coloring of a 5x62 rectangle with no monochromatic AP of length greater than 3.<br>
-`python3 2dvdW.py 5 65 0` to find the smallest L such that a 5x62 rectangle has a 2-coloring with no monochromatic AP of length greater than L. It also produces that coloring.<br>
-Whenever a coloring is found, it is saved in a file with name of the form 2D-5x65-4.txt<br>
+Program | Details
+------- | -------
+`2dvdW.py` | Usage: `python3 2dvdW.py 5 65 3` to search for a 2-coloring of a 5x62 rectangle with no monochromatic AP of length greater than 3.<br>Usage: `python3 2dvdW.py 5 65 0` to find the smallest L such that a 5x62 rectangle has a 2-coloring with no monochromatic AP of length greater than L.<br>Both usages also produce that coloring.<br>Whenever a coloring is found, it is saved in a file with name of the form 2D-5x65-4.txt<br>
+`2dvdW2.py` | Same as above, but searches for 180-degree rotationally-symmetric tilings.
+`2vdW2chop.py` | Usage: `python3 2vdW2chop.py H W L C` searches for a 180-degree rotationally-symmetric 2-coloring of an HxW rectangle such that when the rightmost C columns are chopped off, the resulting coloring contains no monochromatic AP of length greater than L.
 
 Colorings of large rectangles that we have found are also present in this directory, of the form `2D-HxW-L.txt`, where `L` is the length of the longest monochromatic AP found in the coloring.
 
